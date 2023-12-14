@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  nginx:
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx.prod.template:/etc/nginx/conf.d/nginx.conf.template:ro
+      - ${CERT_PATH_FULLCHAIN_PEM}:/etc/nginx/certs/fullchain.pem:ro
+      - ${CERT_PATH_PRIVKEY_PEM}:/etc/nginx/certs/privkey.pem:ro
+      - ${CERTBOT_WEBROOT}/:/var/www/certbot/:ro
+      - app-build:/app/build:ro
+
+  api:
+    command:
+      [
+        "uvicorn",
+        "main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--proxy-headers",
+        "--forwarded-allow-ips",
+        "*",
+      ]
+
+  worker:
+    command:
+      [
+        "celery",
+        "-A",
+        "worker.app",
+        "worker",
+        "--loglevel=info",
+        "--pool=prefork",
+        "--concurrency=${CELERY_CONCURRENCY}",
+      ]
+
+  app:
+    build:
+      context: ../app
+      target: builder
+    volumes:
+      - app-build:/app/build
+
+  mjml:
+    command: ["yarn", "prod"]
+
+volumes:
+  app-build:

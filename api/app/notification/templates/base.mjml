@@ -1,0 +1,68 @@
+<mjml lang="en">
+    <mj-head>
+        <mj-font
+            name="Roboto"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+        />
+        <mj-attributes>
+            <mj-text color="white" />
+            <mj-all font-family="Roboto, Helvetica, Arial, sans-serif" />
+        </mj-attributes>
+        <mj-style inline="inline">
+            a {
+                color: inherit;
+            }
+        </mj-style>
+    </mj-head>
+    <mj-body background-color="#121212">
+        <mj-section padding-bottom="10px">
+            <mj-column padding="0">
+                <mj-image
+                    padding="0"
+                    height="60px"
+                    width="160px"
+                    alt="Intervew Transcription"
+                    href="{{ base_url }}"
+                    src="{{ base_url ~ '/waveform-white.png' }}"
+                />
+            </mj-column>
+        </mj-section>
+        <mj-section
+            padding="20px"
+            border-radius="10px"
+        >
+            <mj-column
+                padding="20px 0"
+                border-radius="10px"
+                background-color="#252525"
+            >
+                {% block content %}{% endblock %}
+            </mj-column>
+        </mj-section>
+        <mj-section padding="0">
+            <mj-column>
+                <mj-text
+                    padding-bottom="5px"
+                    align="center"
+                    font-size="14px"
+                    font-weight="300"
+                    line-height="20px"
+                >
+                    If you have questions, please contact the administrator
+                </mj-text>
+                <mj-text
+                    padding="0"
+                    align="center"
+                    color="#9dc8f5"
+                    font-weight="400"
+                    font-size="14px"
+                    line-height="20px"
+                >
+                    <a href="mailto:{{ contact_email }}">
+                        {{ contact_email }}
+                    </a>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>

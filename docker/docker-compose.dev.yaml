@@ -1,0 +1,68 @@
+version: "3.8"
+
+services:
+  mariadb:
+    ports:
+      - ${DEV_MARIADB_PORT:-3306}:3306
+
+  redis:
+    ports:
+      - ${DEV_REDIS_PORT:-6379}:6379
+
+  nginx:
+    ports:
+      - ${DEV_APP_PORT:-3000}:80
+    volumes:
+      - ./nginx.dev.template:/etc/nginx/conf.d/nginx.conf.template:ro
+
+  api:
+    command:
+      [
+        "uvicorn",
+        "main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+        "--proxy-headers",
+        "--forwarded-allow-ips",
+        "*",
+      ]
+    volumes:
+      - ../api/app:/app
+
+  worker:
+    command:
+      [
+        "hupper",
+        "-m",
+        "celery",
+        "-A",
+        "worker.app",
+        "worker",
+        "--loglevel=info",
+        "--pool=prefork",
+        "--concurrency=${CELERY_CONCURRENCY}",
+      ]
+    volumes:
+      - ../api/app:/app
+
+  app:
+    build:
+      context: ../app
+      target: development
+    command: ["yarn", "start"]
+    environment:
+      WDS_SOCKET_PORT: 0
+    volumes:
+      - ../app/src:/app/src
+      - ../app/public:/app/public
+    depends_on:
+      - api
+    restart: always
+
+  mjml:
+    command: ["yarn", "dev"]
+    volumes:
+      - ../api/mjml/index.js:/app/index.js

@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: ../api
+      target: cpu
+      args:
+        PYDANTIC_VERSION: "2.4.2"
+  worker:
+    build:
+      context: ../api
+      target: cpu
+      args:
+        PYDANTIC_VERSION: "1.10.13"

@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      context: ../api
+      target: cuda
+      args:
+        PYDANTIC_VERSION: "2.4.2"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  worker:
+    build:
+      context: ../api
+      target: cuda
+      args:
+        PYDANTIC_VERSION: "1.10.13"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
