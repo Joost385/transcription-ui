@@ -2,7 +2,7 @@
 	order try_files after reverse_proxy
 }
 
-https://${CADDY_DOMAIN_NAME} {
+${CADDY_DOMAIN_NAME} {
     encode gzip
 
     request_body {
