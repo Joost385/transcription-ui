@@ -13,3 +13,7 @@ http://localhost {
 http://phpmyadmin.localhost {
     reverse_proxy phpmyadmin
 }
+
+http://mailpit.localhost {
+    reverse_proxy mailpit:8025
+}

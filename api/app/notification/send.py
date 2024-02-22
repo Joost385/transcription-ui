@@ -22,8 +22,9 @@ def send_email(to: str, subject: str, content: str):
     html = MIMEText(content, "html")
     message.attach(html)
     with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as smtp:
-        smtp.starttls()
-        smtp.login(EMAIL_USER, EMAIL_PASSWORD)
+        if EMAIL_PASSWORD and EMAIL_USER:
+            smtp.starttls()
+            smtp.login(EMAIL_USER, EMAIL_PASSWORD)
         smtp.sendmail(EMAIL_USER, to, message.as_string())
 
 

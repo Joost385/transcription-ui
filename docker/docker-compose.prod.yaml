@@ -12,6 +12,12 @@ services:
       CADDY_DOMAIN_NAME: ${CADDY_DOMAIN_NAME}
 
   api:
+    environment: &api_environment
+      BASE_URL: ${BASE_URL}
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_PORT: ${EMAIL_PORT}
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
     command:
       [
         "uvicorn",
@@ -26,6 +32,7 @@ services:
       ]
 
   worker:
+    environment: *api_environment
     command:
       [
         "celery",

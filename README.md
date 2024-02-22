@@ -79,21 +79,6 @@ Expiry time for password reset tokens in minutes.
 - `FILES_MAX_SIZE_BYTE`\
 Upload file size limit in bytes e.g. 300 MB = $300 \times 2^{20}$ bytes.
 
-- `BASE_URL`\
-Base URL for generating email links e.g. *https<span>:</span>//www<span>.</span>example<span>.</span>com*. For development specify localhost with the configured port e.g. *http<span>:</span>//localhos<span>t</span>:3000*.
-
-- `EMAIL_HOST`\
-Email server host. Use `smtp.mail.me.com` for iCloud and `smtp.gmail.com` for Gmail.
-
-- `EMAIL_PORT`\
-Email server port. Use `587` for iCloud and Gmail.
-
-- `EMAIL_USER`\
-Username for the email server.
-
-- `EMAIL_PASSWORD`\
-Password for the email server.
-
 - `CONTACT_EMAIL`\
 Contact email displayed on the help page and in emails.
 
@@ -117,16 +102,27 @@ Use `pwgen -Bnc 40 3` to generate strong passwords for MariaDB and Redis.
 ## Production
 
 - `CADDY_DOMAIN_NAME`\
-Domain(s) for your application e.g. `"example.com www.example.com"`. For multiple domains, enclose them in quotes and separate them with spaces.
+Domain(s) for your application e.g. `"example.com www.example.com"`. For multiple domains, enclose them in quotes and separate them with spaces. Certificates for your domains are automatically managed by caddy.
 
-Certificates for your domains are automatically managed by caddy.
+- `BASE_URL`\
+Base URL for generating email links e.g. *https<span>:</span>//www<span>.</span>example<span>.</span>com*.
+
+- `EMAIL_HOST`\
+Email server host. Use `smtp.mail.me.com` for iCloud and `smtp.gmail.com` for Gmail.
+
+- `EMAIL_PORT`\
+Email server port. Use `587` for iCloud and Gmail.
+
+- `EMAIL_USER`\
+Username for the email server.
+
+- `EMAIL_PASSWORD`\
+Password for the email server.
 
 ## Development
 
 - `DEV_APP_PORT`\
-Application's running port, defaults to **3000**.
-
-A phpMyAdmin instance is running under `phpmyadmin.localhost:{DEV_APP_PORT}`.
+Application's running port, defaults to **3000**. A phpMyAdmin instance is running under `phpmyadmin.localhost:{DEV_APP_PORT}`. There also is a mailcatcher reachable under `mailpit.localhost:{DEV_APP_PORT}`.
 
 # License
 

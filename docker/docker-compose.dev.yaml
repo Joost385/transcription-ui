@@ -8,6 +8,12 @@ services:
       - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile.template:ro
 
   api:
+    environment: &api_environment
+      EMAIL_PORT: 1025
+      EMAIL_HOST: mailpit
+      EMAIL_USER: ""
+      EMAIL_PASSWORD: ""
+      BASE_URL: http://localhost:${DEV_APP_PORT:-3000}
     command:
       [
         "uvicorn",
@@ -25,6 +31,7 @@ services:
       - ../api/app:/app
 
   worker:
+    environment: *api_environment
     command:
       [
         "hupper",
@@ -65,3 +72,12 @@ services:
       PMA_HOST: mariadb
       PMA_PORT: 3306
       UPLOAD_LIMIT: 1G
+
+  mailpit:
+    image: axllent/mailpit:v1.13.0
+    volumes:
+      - ./data/mailpit:/data
+    environment:
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
