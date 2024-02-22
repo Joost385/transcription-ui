@@ -22,7 +22,7 @@ endef
 
 .PHONY: up
 up: validate-args
-	@$(call docker_compose, up -d --build)
+	@$(call docker_compose, up -d)
 
 .PHONY: down
 down: validate-args
