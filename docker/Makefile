@@ -89,10 +89,3 @@ backup:
 	else \
 	    echo "No data found."; \
 	fi
-
-.PHONY: certs
-certs:
-	@mkdir -p data/certs
-	@openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-		-keyout data/certs/privkey.pem \
-		-out data/certs/fullchain.pem
