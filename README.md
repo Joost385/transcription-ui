@@ -3,15 +3,15 @@
 </p>
 
 <p align="center" style="padding: 0 50px;">
-    This repository offers a full-stack web application for interview transcription. It integrates a pipeline based on <a href="https://github.com/openai/whisper">OpenAI Whisper</a> for transcription and <a href="https://github.com/NVIDIA/NeMo">NVIDIA NeMo</a> for speaker diarization. The backend is based on <a href="https://github.com/tiangolo/fastapi">FastAPI</a> and the frontend is built with <a href="https://github.com/mui/material-ui">Material UI</a>. With the included Docker setup, deployment is straightforward and highly customizable.
+    This repository offers a full-stack web application for interview transcription. It integrates a pipeline based on <a href="https://github.com/openai/whisper">OpenAI Whisper</a> for transcription and <a href="https://github.com/NVIDIA/NeMo">NVIDIA NeMo</a> for speaker diarization. The backend is based on <a href="https://github.com/tiangolo/fastapi">FastAPI</a> and the frontend is built with <a href="https://github.com/mui/material-ui">Material UI</a>. With the included Docker setup, deployment is straightforward and highly customizable. Thanks to <a href="https://github.com/caddyserver/caddy">caddy</a> you also get automatic automatic HTTPS.
 </p>
 
 # Getting Started
 
 ## Prerequisites
 
-- Install Docker and Docker Compose to run the application.
-- Configure the application before starting it. Refer to the [Configuration](#configuration) section for details. For production setups, also read the [SSL Certificates](#ssl-certificates) section.
+- Install Docker to run the application.
+- Configure the application before starting it. Refer to the [Configuration](#configuration) section for details.
 - The project uses Make to streamline interactions with Docker Compose. Alternatively, you can refer to the [Makefile](docker/Makefile) and execute the commands manually. The following commands are executed from the docker folder, but you can run them from anywhere with `make -C path/to/docker/folder [target]`.
 
 ## Setup
@@ -39,7 +39,7 @@ make download-nemo-models
 make download-whisper-models
 ```
 
-The application should now be running on the configured domain or on `localhost:3000` for the development environment (unless another `DEV_APP_PORT` is specified). Access the Swagger API documentation at `/api/docs`.
+The application should now be running on the domain(s) configured with `CADDY_DOMAIN_NAME` or on `localhost:3000` for the development environment (unless another `DEV_APP_PORT` is specified). Access the Swagger API documentation at `/api/docs`.
 
 The Makefile includes more targets for managing and monitoring the setup:
 ```bash
@@ -59,30 +59,6 @@ All application data is stored in the `docker/data/` directory. The following co
 ```bash
 make backup
 ```
-
-## SSL Certificates
-
-For the production environment, generate SSL certificates. The Makefile includes a `make certs` target for creating self-signed certificates, which will be stored in `docker/data/certs/.`
-
-Alternatively, you can obtain certificates from a trusted certificate authority using certbot:
-
-```bash
-apt install certbot
-```
-
-Execute the following command *while the compose setup is down* (replace the example domain):
-
-```bash
-certbot certonly --standalone -d example.com -d www.example.com
-```
-
-The certificates will be saved in `/etc/letsencrypt/live/example.com/`. Configure `CERT_PATH_FULLCHAIN_PEM` and `CERT_PATH_PRIVKEY_PEM` to mount them into the nginx container. Renew certificates with:
-    
-```bash
-certbot renew --webroot -w /var/www/certbot-webroot
-```
-
-For automatic renewal, consider adding a cron job to your system. Ensure that the webroot path (in this case `/var/www/certbot-webroot`) matches the directory specified in the `CERTBOT_WEBROOT` environment variable. This directory can be any location of your choice, as long as it aligns with the environment variable setting.
 
 # Configuration
 
@@ -140,32 +116,17 @@ Use `pwgen -Bnc 40 3` to generate strong passwords for MariaDB and Redis.
 
 ## Production
 
-Additional environment variables for production settings:
-
-- `NGINX_SERVER_NAME`\
+- `CADDY_DOMAIN_NAME`\
 Domain(s) for your application e.g. `"example.com www.example.com"`. For multiple domains, enclose them in quotes and separate them with spaces.
 
-- `CERT_PATH_FULLCHAIN_PEM`\
-Path to `fullchain.pem` file e.g. */etc/letsencrypt/live/example.com/fullchain.pem*
-
-- `CERT_PATH_PRIVKEY_PEM`\
-Path to `privkey.pem` file e.g. */etc/letsencrypt/live/example.com/privkey.pem*
-
-- `CERTBOT_WEBROOT`\
-Location of the webroot used for certbot renewals e.g. */var/www/certbot-webroot*
+Certificates for your domains are automatically managed by caddy.
 
 ## Development
-
-Port mappings for the development environment:
 
 - `DEV_APP_PORT`\
 Application's running port, defaults to **3000**.
 
-- `DEV_REDIS_PORT`\
-Redis database port, defaults to **6379**.
-
-- `DEV_MARIADB_PORT`\
-MariaDB database port, defaults to **3306**.
+A phpMyAdmin instance is running under `phpmyadmin.localhost:{DEV_APP_PORT}`.
 
 # License
 
