@@ -9,3 +9,7 @@ http://localhost {
         reverse_proxy api:8000
     }
 }
+
+http://phpmyadmin.localhost {
+    reverse_proxy phpmyadmin
+}
