@@ -1,0 +1,11 @@
+http://localhost {
+    request_body {
+        max_size ${FILES_MAX_SIZE_BYTE}
+    }
+    
+    reverse_proxy app:3000
+
+    handle_path /api/* {
+        reverse_proxy api:8000
+    }
+}

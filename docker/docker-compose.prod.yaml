@@ -1,16 +1,15 @@
 version: "3.8"
 
 services:
-  nginx:
+  caddy:
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx.prod.template:/etc/nginx/conf.d/nginx.conf.template:ro
-      - ${CERT_PATH_FULLCHAIN_PEM}:/etc/nginx/certs/fullchain.pem:ro
-      - ${CERT_PATH_PRIVKEY_PEM}:/etc/nginx/certs/privkey.pem:ro
-      - ${CERTBOT_WEBROOT}/:/var/www/certbot/:ro
+      - ./caddy/Caddyfile.prod:/etc/caddy/Caddyfile.template:ro
       - app-build:/app/build:ro
+    environment:
+      CADDY_DOMAIN_NAME: ${CADDY_DOMAIN_NAME}
 
   api:
     command:

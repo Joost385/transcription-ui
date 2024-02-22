@@ -1,19 +1,11 @@
 version: "3.8"
 
 services:
-  mariadb:
-    ports:
-      - ${DEV_MARIADB_PORT:-3306}:3306
-
-  redis:
-    ports:
-      - ${DEV_REDIS_PORT:-6379}:6379
-
-  nginx:
+  caddy:
     ports:
       - ${DEV_APP_PORT:-3000}:80
     volumes:
-      - ./nginx.dev.template:/etc/nginx/conf.d/nginx.conf.template:ro
+      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile.template:ro
 
   api:
     command:
@@ -66,3 +58,10 @@ services:
     command: ["yarn", "dev"]
     volumes:
       - ../api/mjml/index.js:/app/index.js
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 1G

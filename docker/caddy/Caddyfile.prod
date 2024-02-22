@@ -1,0 +1,19 @@
+{
+	order try_files after reverse_proxy
+}
+
+https://${CADDY_DOMAIN_NAME} {
+    encode gzip
+
+    request_body {
+        max_size ${FILES_MAX_SIZE_BYTE}
+    }
+
+    root * /app/build
+    file_server
+    try_files {path} {path}/ /index.html
+
+    handle_path /api/* {
+        reverse_proxy api:8000
+    }
+}
