@@ -2,8 +2,8 @@
   <img src="https://github.com/moostrich/transcription-ui/assets/61097554/0d622ce1-c578-4fd4-ba51-528288fd66a3" />
 </p>
 
-<p align="center" style="padding: 0 50px;">
-    This repository offers a full-stack web application for interview transcription. It integrates a pipeline based on <a href="https://github.com/openai/whisper">OpenAI Whisper</a> for transcription and <a href="https://github.com/NVIDIA/NeMo">NVIDIA NeMo</a> for speaker diarization. The backend is based on <a href="https://github.com/tiangolo/fastapi">FastAPI</a> and the frontend is built with <a href="https://github.com/mui/material-ui">Material UI</a>. With the included Docker setup, deployment is straightforward and highly customizable. Thanks to <a href="https://github.com/caddyserver/caddy">caddy</a> you also get automatic automatic HTTPS.
+<p align="center" style="margin: 0 50px;">
+    This repository provides a full-stack web application for interview transcription. It features an integrated pipeline that utilizes <a href="https://github.com/openai/whisper">OpenAI Whisper</a> for accurate transcription and <a href="https://github.com/NVIDIA/NeMo">NVIDIA NeMo</a> for reliable speaker diarization. The backend infrastructure is built using <a href="https://github.com/tiangolo/fastapi">FastAPI</a>, while the frontend is based on <a href="https://github.com/mui/material-ui">Material UI</a> for a modern and accessible user experience. Deployment is made seamless and flexible through the included Docker setup. Additionally, <a href="https://github.com/caddyserver/caddy">Caddy</a> provides automatic HTTPS and certificate management.
 </p>
 
 # Getting Started
