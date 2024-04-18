@@ -131,16 +131,16 @@ This project is licensed under the AGPL-3.0. The key point: if you modify and us
 # Screenshots
 
 <p align="center">
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/b4f45e04-f8cf-4d89-ad80-e5970afc76d5" /> <!-- manage recordings -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/ff18c771-d5dc-4d3c-a9f7-4802501dbaa6" /> <!-- integrated recorder -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/9c51a849-0966-465d-bc1b-c3172da96ff6" /> <!-- light mode -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/75e0a030-b5ae-47f1-9289-7f0aea31eea7" /> <!-- manage transcriptions -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/2774a119-d4c2-4789-b501-599c357f63ef" /> <!-- start transcriptions -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/19ba6876-c661-427c-8f76-9d6a68504064" /> <!-- transcript -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/28093760-cc8d-46fa-9a89-d2094eb5e6f1" /> <!-- monitoring -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/a479d228-2f26-44b7-97e0-c6864f89a6fd" /> <!-- manage users -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/fc1cbb4d-3570-4213-a7c8-8b3aafc2e7e4" /> <!-- mobile -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/aa3d8eb2-00b5-4b29-8164-d54c670f4eda" /> <!-- emails -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/7eda984c-f5ce-4ad8-a5d1-526ef0bdc548" /> <!-- login -->
-  <img href="https://github.com/Joost385/transcription-ui/assets/61097554/3e6f689a-5044-42df-bf3f-000656aaab28" /> <!-- reset password -->
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/b4f45e04-f8cf-4d89-ad80-e5970afc76d5" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/ff18c771-d5dc-4d3c-a9f7-4802501dbaa6" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/9c51a849-0966-465d-bc1b-c3172da96ff6" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/75e0a030-b5ae-47f1-9289-7f0aea31eea7" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/2774a119-d4c2-4789-b501-599c357f63ef" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/19ba6876-c661-427c-8f76-9d6a68504064" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/28093760-cc8d-46fa-9a89-d2094eb5e6f1" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/a479d228-2f26-44b7-97e0-c6864f89a6fd" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/fc1cbb4d-3570-4213-a7c8-8b3aafc2e7e4" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/aa3d8eb2-00b5-4b29-8164-d54c670f4eda" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/7eda984c-f5ce-4ad8-a5d1-526ef0bdc548" />
+  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/3e6f689a-5044-42df-bf3f-000656aaab28" />
 </p>
