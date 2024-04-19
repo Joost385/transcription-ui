@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/moostrich/transcription-ui/assets/61097554/0d622ce1-c578-4fd4-ba51-528288fd66a3" />
+  <img src="https://github.com/moostrich/transcription-ui/assets/61097554/0d622ce1-c578-4fd4-ba51-528288fd66a3">
 </p>
 
 <p align="center" style="margin: 0 50px;">
@@ -124,28 +124,64 @@ Password for the email server.
 - `DEV_APP_PORT`\
 Application's running port, defaults to **3000**. A phpMyAdmin instance is running under `phpmyadmin.localhost:{DEV_APP_PORT}`. There also is a mailcatcher reachable under `mailpit.localhost:{DEV_APP_PORT}`.
 
+# Features
+
+This is only a brief overview of the application's features. For a more detailed look, just spin up the [docker setup](#getting-started) and check out the application yourself.
+
+## Recordings
+
+Files can be uploaded in various formats, including MP3, WAV, and OGG.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/066a203d-8cb1-4bb4-8bee-67f7dc509d74">
+
+Alternatively, the integrated recorder can be used to record audio directly in the browser.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/ff18c771-d5dc-4d3c-a9f7-4802501dbaa6">
+
+## Transcriptions
+
+The progress of the transcriptions can be monitored in real-time. Optionally, users can be notified via email when a transcription is finished.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/75e0a030-b5ae-47f1-9289-7f0aea31eea7">
+
+Transcriptions allow for several configurations. The Whisper model can be selected, speaker diarization can be enabled, and the number of speakers can be specified. Users can also opt-in to receive email notifications.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/2774a119-d4c2-4789-b501-599c357f63ef">
+
+When speaker diarization is enabled, the transcription viewer allows users to playback speaker snippets. Transcripts can be exported as plain text, JSON, CSV, and Excel.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/19ba6876-c661-427c-8f76-9d6a68504064">
+
+## Monitoring
+
+Administrators can monitor the system parameters in real-time, including CPU/GPU usage and RAM/VRAM consumption. Additionally, running transcriptions can be cancelled.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/28093760-cc8d-46fa-9a89-d2094eb5e6f1">
+
+## Users
+
+Users can be managed by administrators. New users receive an email with a link to set their password. Users can also reset their password via email.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/a479d228-2f26-44b7-97e0-c6864f89a6fd">
+
+## Emails
+
+Thanks to MJML, emails are designed in the application's theme and optimized for all devices.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/aa3d8eb2-00b5-4b29-8164-d54c670f4eda">
+
+## Mobile optimized
+
+The application is fully responsive and optimized for mobile devices.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/fc1cbb4d-3570-4213-a7c8-8b3aafc2e7e4">
+
+## Light Mode
+
+In addition to the default dark mode, the application also supports a light mode.
+
+<img src="https://github.com/Joost385/transcription-ui/assets/61097554/9c51a849-0966-465d-bc1b-c3172da96ff6">
+
 # License
 
 This project is licensed under the AGPL-3.0. The key point: if you modify and use this code, especially in networked applications, those changes should be shared under the same license. It's about maintaining openness in software development. For exact terms refer to the [LICENSE](LICENSE) file.
-
-# Screenshots
-
-<p align="center">
-  <h2>Recordings</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/b4f45e04-f8cf-4d89-ad80-e5970afc76d5" />
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/ff18c771-d5dc-4d3c-a9f7-4802501dbaa6" />
-  <h2>Transcriptions</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/75e0a030-b5ae-47f1-9289-7f0aea31eea7" />
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/2774a119-d4c2-4789-b501-599c357f63ef" />
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/19ba6876-c661-427c-8f76-9d6a68504064" />
-  <h2>Monitoring</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/28093760-cc8d-46fa-9a89-d2094eb5e6f1" />
-  <h2>Users</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/a479d228-2f26-44b7-97e0-c6864f89a6fd" />
-  <h2>Mobile optimized</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/fc1cbb4d-3570-4213-a7c8-8b3aafc2e7e4" />
-  <h2>Emails</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/aa3d8eb2-00b5-4b29-8164-d54c670f4eda" />
-  <h2>Light Mode</h2>
-  <img src="https://github.com/Joost385/transcription-ui/assets/61097554/9c51a849-0966-465d-bc1b-c3172da96ff6" />
-</p>
